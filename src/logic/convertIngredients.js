@@ -41,7 +41,10 @@ export function scaleIngredients(ingredients, scaleFactor) {
   for (const ingredient of ingredients) {
     // Skip over invalid or zero quantities, as the original script does.
     if (isNaN(ingredient.quantity) || !ingredient.quantity) continue;
-    converted.push({ ...ingredient, quantity: ingredient.quantity * scaleFactor });
+    converted.push({
+      ...ingredient,
+      quantity: ingredient.quantity * scaleFactor,
+    });
   }
 
   // If no valid ingredients, don't print a table.

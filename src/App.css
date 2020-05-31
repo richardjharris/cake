@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -30,14 +32,14 @@ main {
   margin: 0 1.5em;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type=text],
-input[type=number],
+input[type="text"],
+input[type="number"],
 label.radio-label,
 select,
 button {
@@ -52,8 +54,8 @@ select {
   padding-right: 0;
 }
 
-form.tin-selector input[type=number],
-form.ingredient-entry input[type=number] {
+form.tin-selector input[type="number"],
+form.ingredient-entry input[type="number"] {
   width: 5em;
   text-align: right;
 }
@@ -67,7 +69,8 @@ label.radio-label {
   border: 0;
 }
 
-input[type=text]:invalid, input[type=number]:invalid {
+input[type="text"]:invalid,
+input[type="number"]:invalid {
   border-color: red;
 }
 
@@ -97,7 +100,8 @@ table.ingredient-list {
   border-spacing: 0;
 }
 
-table.ingredient-list td, table.ingredient-list th {
+table.ingredient-list td,
+table.ingredient-list th {
   text-align: left;
   padding: 5px 10px;
 }
@@ -106,7 +110,7 @@ table.ingredient-list td, table.ingredient-list th {
    column, and the top right + bottom right corners of the right
    column, to make it look like a single rounded object */
 table.ingredient-list tr:nth-child(even) td:first-child {
-  background:#eee;
+  background: #eee;
   border-radius: 5px 0 0 5px;
 }
 table.ingredient-list tr:nth-child(even) td:last-child {

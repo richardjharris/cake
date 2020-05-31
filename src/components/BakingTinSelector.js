@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-const shapes = ['Round', 'Square'];
-const shapeGlyphs = ['⚪', '□']
-const units = ['cm', 'inches'];
+const shapes = ["Round", "Square"];
+const shapeGlyphs = ["⚪", "□"];
+const units = ["cm", "inches"];
 
 export default function BakingTinSelector({ tin: inputTin, onUpdate }) {
   let tin = { ...inputTin };
@@ -13,32 +13,58 @@ export default function BakingTinSelector({ tin: inputTin, onUpdate }) {
     tin.unit = units[0];
   }
 
-  const handleUpdate = e => {
+  const handleUpdate = (e) => {
     tin[e.target.name] = e.target.value;
     onUpdate(tin);
   };
 
-  return <form className="tin-selector">
-    Type: {shapes.map((shape, index) => <label key={shape} className="radio-label">
-      <input type="radio" name="shape" value={shape}
-        checked={tin.shape === shape} onChange={handleUpdate} />
-      {shape} &nbsp;{shapeGlyphs[index]}
-    </label>)}
-    <br />
-    {tin.shape === "Square" ? (
-      <>
-        <label>Width: <input type="number" step="any" required name="width" min="0.1" value={tin.width} onChange={handleUpdate} /></label>
-        <label>Length: <input type="number" step="any" required name="length" min="0.1" value={tin.length} onChange={handleUpdate} /></label>
-      </>
-    ) : (
-        <label>
-          Diameter: <input type="number" step="any" required name="diameter" min="0.1" value={tin.diameter} onChange={handleUpdate} />
+  const NumInput = ({ label, field }) => {
+    return (
+      <label>
+        {label}
+        {": "}
+        <input
+          type="number"
+          required
+          step="any"
+          min="0.0001"
+          name={field}
+          value={tin[field]}
+          onChange={handleUpdate}
+        />
+      </label>
+    );
+  };
+
+  return (
+    <form className="tin-selector">
+      Type:{" "}
+      {shapes.map((shape, index) => (
+        <label key={shape} className="radio-label">
+          <input
+            type="radio"
+            name="shape"
+            value={shape}
+            checked={tin.shape === shape}
+            onChange={handleUpdate}
+          />
+          {shape} &nbsp;{shapeGlyphs[index]}
         </label>
+      ))}
+      <br />
+      {tin.shape === "Square" ? (
+        <>
+          <NumInput label="Width" field="width" />
+          <NumInput label="length" field="length" />
+        </>
+      ) : (
+        <NumInput label="Diameter" field="diameter" />
       )}
-    <label>Height: <input type="number" step="any" required name="height" min="0.1" value={tin.height} onChange={handleUpdate} /></label>
-    <select name="unit" value={tin.unit} onChange={handleUpdate}>
-      <option value="cm">cm</option>
-      <option value="in">inches</option>
-    </select>
-  </form>;
+      <NumInput label="Height" field="height" />
+      <select name="unit" value={tin.unit} onChange={handleUpdate}>
+        <option value="cm">cm</option>
+        <option value="in">inches</option>
+      </select>
+    </form>
+  );
 }
