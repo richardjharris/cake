@@ -23,10 +23,10 @@ export default function IngredientEditor({ ingredient, index, onUpdate, onRemove
     onUpdate(index, { ...ingredient, [e.target.name]: e.target.value });
   };
 
-  return <form class="ingredient-entry">
+  return <form className="ingredient-entry">
     <label>
       Ingredient {index + 1}:
-      <input class="ingredient-name" type="text" name="name" value={ingredient.name} onChange={handleUpdate}
+      <input className="ingredient-name" type="text" name="name" value={ingredient.name} onChange={handleUpdate}
         placeholder="e.g. flour, eggs" />
     </label>
     <span style={{"display": "inline-block"}}>
@@ -36,7 +36,7 @@ export default function IngredientEditor({ ingredient, index, onUpdate, onRemove
     </label>
     <select name="unit" value={ingredient.unit} onChange={handleUpdate}>
       {units.map((unit) =>
-        <option value={unit}>{unit}</option>
+        <option key={unit} value={unit}>{unit}</option>
       )}
     </select>
     {hasDeleteButton && <button onClick={() => onRemove(index)}>X</button>}

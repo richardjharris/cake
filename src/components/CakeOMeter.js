@@ -44,11 +44,11 @@ export default function CakeOMeter() {
         />
       )}
       <button onClick={addIngredient}>Add Ingredient</button>
-       <button class="clear-all" onClick={resetIngredients}>Clear all</button>
+       <button className="clear-all" onClick={resetIngredients}>Clear all</button>
       <h2>Existing Baking Tin</h2>
       <BakingTinSelector tin={oldTin} onUpdate={setOldTin} />
       <h2>New Baking Tin{
-        scalingFactor ? <span class="scaling-factor">
+        scalingFactor ? <span className="scaling-factor">
           &nbsp;(scaled {scalingFactor.toFixed(1)} times)
         </span> : ''
       }</h2>
@@ -58,7 +58,7 @@ export default function CakeOMeter() {
       <h2>New Recipe</h2>
       {(convertedIngredients === null ?
         <p>Your new recipe will appear here automatically!</p>
-        : <table class="ingredient-list">
+        : <table className="ingredient-list">
           <thead><tr><th>Ingredient</th><th>Quantity</th></tr></thead>
           <tbody>{convertedIngredients.map((ingredient, index) => <tr key={index}>
             <td>{ingredient.name || '-'}</td>
