@@ -119,3 +119,10 @@ table.ingredient-list tr:nth-child(even) td:last-child {
     width: 100px;
   }
 }
+
+/* Printing should only display the new recipe */
+@media print {
+  div#cakeometer-inputs {
+    display: none;
+  }
+}
