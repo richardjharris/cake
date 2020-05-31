@@ -19,8 +19,8 @@ export default function BakingTinSelector({ tin: inputTin, onUpdate }) {
   };
 
   return <form className="tin-selector">
-    Type: {shapes.map((shape, index) => <label className="radio-label">
-      <input key={shape} type="radio" name="shape" value={shape}
+    Type: {shapes.map((shape, index) => <label key={shape} className="radio-label">
+      <input type="radio" name="shape" value={shape}
         checked={tin.shape === shape} onChange={handleUpdate} />
       {shape} &nbsp;{shapeGlyphs[index]}
     </label>)}
