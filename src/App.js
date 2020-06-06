@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import CakeOMeter from "./components/CakeOMeter";
+import CakeOMeterBasic from "./components/CakeOMeterBasic";
+import { Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -9,7 +11,10 @@ function App() {
         <p>CakeOmeter</p>
       </header>
       <main>
-        <CakeOMeter />
+        <Switch>
+          <Route path="/" component={CakeOMeterBasic} exact />
+          <Route path="/recipe" component={CakeOMeter} />
+        </Switch>
       </main>
     </div>
   );

@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import BakingTinSelector from "./BakingTinSelector";
 import IngredientEditor from "./IngredientEditor";
 import {
@@ -38,7 +40,7 @@ export default function CakeOMeter() {
   const scalingFactor = tinScalingFactor(oldTin, newTin);
   const convertedIngredients = scaleIngredients(ingredients, scalingFactor);
 
-  return (
+  return <>
     <div id="container">
       <div id="cakeometer-inputs">
         <h2>Existing Recipe</h2>
@@ -95,5 +97,7 @@ export default function CakeOMeter() {
         )}
       </div>
     </div>
-  );
+    <p class="footer">Try the <Link to="/">basic version</Link> if you just want to know
+      how much to scale things by.</p>
+  </>;
 }

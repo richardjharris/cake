@@ -118,6 +118,11 @@ table.ingredient-list tr:nth-child(even) td:last-child {
   border-radius: 0 5px 5px 0;
 }
 
+.footer {
+  border-top: 1px solid #ddd;
+  padding-top: 0.5em;
+}
+
 @media screen and (max-width: 800px) and (min-width: 600px) {
   input.ingredient-name {
     width: 100px;
