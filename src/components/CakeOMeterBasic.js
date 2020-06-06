@@ -24,7 +24,7 @@ export default function CakeOMeterBasic() {
             You should scale your recipe quantities by {scalingFactor.toFixed(1)}x
              ({(scalingFactor * 100).toFixed(1)}%)</span>
           ) : (
-            ""
+            "Please fill in all inputs above."
           )}
         </div>
       </div>
